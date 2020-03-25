@@ -74,39 +74,36 @@ class Guillotheme {
 	 */
 	public function redirect() {
 
-		if ( ! is_admin() )
-		
+		if ( ! is_admin() ) {
+
 			$options = get_option( 'guillotheme_settings' );
 
-			
-		}
+			if ( $options['redirect_to'] == 'custom' ) {
+				
+				// Redirect to the custom url.
+				$custom_url = esc_url( $options['custom_url'] );
+				wp_redirect( $custom_url );
+				exit;
 
-			// && ( isset( $options['enable_redirects'] ) && $options['enable_redirects'] === '1' ) ) {
+			} else {
 
-			// 	$post_ID = get_the_id();
-			// 	$home_ID = get_option( 'page_on_front' );
-			// 	$blog_ID = get_option( 'page_for_posts' );
+				// Create the post edit link.
+				$edit_link = admin_url( 'post.php?post=' . get_the_id() . '&action=edit' );
 
-			// 	// As long as we're not requesting the homepage, perform the redirect.
-			// 	if ( $home_ID !== $post_ID && $blog_ID !== $post_ID && ! is_front_page() ) {
+				if ( is_user_logged_in() ) {
 
-			// 		// Create the post edit link.
-			// 		$edit_link = admin_url( 'post.php?post=' . $post_ID . '&action=edit' );
+					// Redirect to the post edit link.
+					wp_safe_redirect( $edit_link );
+					exit;
 
-			// 		if ( is_user_logged_in() ) {
+				} else {
 
-			// 			// Redirect to the post edit link.
-			// 			wp_safe_redirect( $edit_link );
-			// 			exit;
+					// Redirect to the login page.
+					wp_safe_redirect( wp_login_url( $edit_link ) );
+					exit;
 
-			// 		} else {
-
-			// 			// Redirect to the login page.
-			// 			wp_safe_redirect( wp_login_url( $edit_link ) );
-			// 			exit;
-
-			// 		}
-			// 	}
-			// }
-	
+				}
+			}	
+		}	
+	}	
 }
