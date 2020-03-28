@@ -10,12 +10,15 @@ License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 == Description ==
 
-Guillotheme chops the front-end (i.e. the head) right off your theme by restricting access to front-end permalinks from within WordPress.
+Guillotheme chops the front-end (i.e. the head) right off your theme by restricting access to the front-end (specifically, WordPress-generated front-end permalinks). These are unnecessary in the case of a headless or decoupled set-up, and can confuse non-technical users or other content editors that are accustomed to seeing post and page previews.
 
 == Features ==
 
-* Optionally enable permalink redirects.
-* 
+* Designed to complement a headless setup.
+* Activate the plugin to automatically prevent access to WordPress-generated front-end permalinks.
+* For logged-in users, redirect back to the source page if they try to access the front-end (e.g. a post preview link will redirect back to the editor page).
+* Redirect non-logged in users to the login page.
+* Optionally use your own custom url for the redirect destination.
 
 == Development ==
 

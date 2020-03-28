@@ -21,7 +21,7 @@ function redirectField() {
     let url_field = document.getElementById('custom-url');
 
     if (redirect1.checked) {
-        url_field.style.opacity = 0.5;
+        url_field.style.opacity = 0.35;
         url_field.required = false;
     } else {
         url_field.style.opacity = 1;
@@ -30,7 +30,7 @@ function redirectField() {
     
     redirect1.addEventListener('click', function(){
         if (redirect1.checked) {
-            url_field.style.opacity = 0.5;
+            url_field.style.opacity = 0.35;
             url_field.required = false;
         }
     });
