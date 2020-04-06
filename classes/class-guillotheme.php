@@ -27,6 +27,7 @@ class Guillotheme {
 		$this->init_settings_link();
 		$this->init_admin();
 		add_action( 'wp', array( $this, 'redirect' ) );
+		add_action( 'plugins_loaded', array( $this, 'load_textdomain' ) );
 	}
 
 	/**
@@ -67,6 +68,13 @@ class Guillotheme {
 	public function init_admin() {
 		require 'class-admin.php';
 		new Admin();
+	}
+
+	/**
+	 * Load the required translation if available.
+	 */
+	public function load_textdomain() {
+		load_plugin_textdomain( 'guillotheme', FALSE, basename( dirname( dirname( __FILE__ ) ) ) . '/languages/' );
 	}
 	
 	/**

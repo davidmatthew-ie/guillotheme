@@ -2,7 +2,7 @@
 Contributors: davidmatthew
 Tags: translation-ready, headless, decoupled
 Requires at least: 5.0
-Tested up to: 5.3.2
+Tested up to: 5.4
 Requires PHP: 7.0
 Stable tag: 1.0.0
 License: GNU GPL v3

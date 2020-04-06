@@ -39,7 +39,7 @@ class Settings {
 
 		add_settings_field(
 			'redirect_to',
-			'Internal Redirects',
+			__( 'Internal Redirects', 'guillotheme' ),
 			array( $this, 'redirect_to_cb' ),
 			'guillotheme',
 			'section_main'
@@ -47,7 +47,7 @@ class Settings {
 
 		add_settings_field(
 			'custom_url',
-			'Custom URL',
+			__( 'Custom URL', 'guillotheme' ),
 			array( $this, 'custom_url_cb' ),
 			'guillotheme',
 			'section_main'

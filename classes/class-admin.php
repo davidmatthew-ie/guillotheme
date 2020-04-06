@@ -48,7 +48,8 @@ class Admin {
 	 * Enqueue admin script.
 	 */
     public function admin_js() {
-		wp_enqueue_script( 'guillotheme-js', esc_url( plugins_url() . '/guillotheme/js/admin.js' ), array(), GUILLOTHEME_VERSION );
+		$admin_js_url = plugins_url( 'js/admin.js', dirname( __FILE__ ) );
+		wp_enqueue_script( 'guillotheme-js', esc_url( $admin_js_url ), array(), GUILLOTHEME_VERSION );
 	}
 	
 	/**
@@ -71,7 +72,7 @@ class Admin {
 			<?php
 			settings_fields( 'guillotheme' );
 			do_settings_sections( 'guillotheme' );
-			submit_button( 'Save Settings' );
+			submit_button( __( 'Save Settings', 'guillotheme' ) );
 			?>
 
 			</form>
